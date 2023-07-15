@@ -31,13 +31,12 @@ def add_package(package_spec: str)->None:
     print(f"Added package {package_spec} to environment.yml")
 
 
-
 def solve_environment(
     # platforms=['osx-64', 'linux-64', 'win-64', 'osx-arm64'],
     platforms=['linux-64'],
     # channels=['conda-forge'],
     channels=['defaults'],
-    lock_filename='environment.yml.lock',
+    lock_filename='environment.conda-lock.yml',
 ):
     from conda.base.context import context
     if context.subdir not in platforms:
@@ -58,7 +57,7 @@ def solve_environment(
 
 
 def install_environment(
-    lock_filename='environment.yml.lock',
+    lock_filename='environment.conda-lock.yml',
 ):
     environment_filename = pathlib.Path('environment.yml')
     yaml = YAML(typ='safe')  # default, if not specfied, is 'rt' (round-trip)
