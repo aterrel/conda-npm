@@ -1,0 +1,7 @@
+name: conda-npm
+channel:
+ - conda-forge
+dependencies:
+ - conda-lock
+ - conda
+ - ruamel.yaml
